@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>tab demo</title>
+    <link rel="stylesheet" href="../css/tab.css">
 </head>
 <body>
 
@@ -22,5 +23,13 @@
     </div>
 </div>
 
+
+<script src="../src/tab.js"></script>
+<script>
+    var tabs = document.getElementsByClassName('tab');
+    new Tab({
+        root: tabs[0]
+    });
+</script>
 </body>
 </html>
