@@ -21,6 +21,26 @@ var utils = {
         node.addEventListener(eventType, function () {
             handler.apply(scope, arguments);
         });
+    },
+
+    /**
+     * add class for the specified node
+     * @param node
+     * @param str
+     */
+    addClass: function (node, str) {
+        if (!new RegExp('(^|\\s+)' + str).test(node.className)) {
+            node.className += " " + str;
+        }
+    },
+
+    /**
+     * remove class for the specified node
+     * @param node
+     * @param str
+     */
+    removeClass: function (node, str) {
+        node.className = node.className.replace(new RegExp("(^|\\s+)" + str), "");
     }
 
 
@@ -32,6 +52,7 @@ var utils = {
  */
 function Tab(config) {
     this._root = config.root;
+    this._currentClass = config.currentClass;
     var trigger = config.trigger || 'click';
 
     this._tabMenus = this._root.getElementsByClassName('tab-menu');
@@ -55,4 +76,12 @@ Tab.prototype.showItem = function (n) {
         this._tabContents[i].style.display = 'none';
     }
     this._tabContents[n].style.display = 'block';
+
+    if (this._currentClass) {
+        var currentMenu = this._root.getElementsByClassName(this._currentClass)[0];
+        if (currentMenu) {
+            utils.removeClass(currentMenu, this._currentClass);
+        }
+        utils.addClass(this._tabMenus[n], this._currentClass);
+    }
 };

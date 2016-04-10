@@ -24,3 +24,4 @@ The available config object is here
 name | type | desc
 -----|------|------
 root | node | the dom node
+currentClass | string | the active class set for the current tab
