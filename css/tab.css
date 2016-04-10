@@ -1,0 +1,28 @@
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.tab {
+    width: 400px;
+}
+
+.tab-menuWrapper {
+    padding-left: 20px;
+}
+
+.tab-menuWrapper li {
+    float: left;
+    display: inline;
+    padding: 5px;
+    border: 1px solid #333;
+    border-bottom: none;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.tab-contentWrapper {
+    border: 1px solid #333;
+    clear: left;
+    padding: 5px;
+}
